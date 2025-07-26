@@ -41,14 +41,25 @@ function handleMouseMove(e) {
     });
 }
 
-// Effet de clic sur les cartes
+// Effet de clic sur les cartes avec délai pour voir l'animation
 function setupCardClickEffects() {
     document.querySelectorAll('.link-card, .project-card').forEach(card => {
         card.addEventListener('click', function(e) {
+            e.preventDefault(); // Empêche l'ouverture immédiate du lien
+            
+            const originalHref = this.href;
+            const originalTarget = this.target;
+            
             // Animation de clic
             this.style.transform = 'scale(0.95)';
+            this.style.transition = 'transform 0.15s ease';
+            
+            // Ouvre le lien après l'animation
             setTimeout(() => {
                 this.style.transform = '';
+                if (originalHref) {
+                    window.open(originalHref, originalTarget || '_self');
+                }
             }, 150);
         });
     });
