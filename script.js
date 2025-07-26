@@ -20,7 +20,7 @@ function handleScroll() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight * 0.8;
-        
+
         if (isVisible) {
             section.style.opacity = '1';
             section.style.transform = 'translateY(0)';
@@ -46,34 +46,27 @@ function setupCardClickEffects() {
     document.querySelectorAll('.link-card, .project-card').forEach(card => {
         card.addEventListener('click', function(e) {
             e.preventDefault(); // Empêche l'ouverture immédiate du lien
-            
+
             const originalHref = this.href;
+            const originalTarget = this.target;
             const hasTargetBlank = this.target === '_blank';
-            
-            // Animation de clic avec durée plus longue pour être sûr de la voir
+
+            // Animation de clic
             this.style.transform = 'scale(0.95)';
-            this.style.transition = 'transform 0.2s ease';
-            
-            // Attendre que l'animation soit vraiment terminée
+            this.style.transition = 'transform 0.15s ease';
+
+            // Ouvre le lien après l'animation
             setTimeout(() => {
-                // Remettre la carte à sa taille normale
-                this.style.transform = 'scale(1)';
-                
-                // Attendre encore un peu pour voir le retour à la normale
-                setTimeout(() => {
-                    this.style.transform = '';
-                    this.style.transition = '';
-                    
-                    // Maintenant ouvrir le lien
-                    if (originalHref) {
-                        if (hasTargetBlank) {
-                            window.open(originalHref, '_blank');
-                        } else {
-                            window.location.href = originalHref;
-                        }
+                this.style.transform = '';
+                if (originalHref) {
+                    window.open(originalHref, originalTarget || '_self');
+                    if (hasTargetBlank) {
+                        window.open(originalHref, '_blank');
+                    } else {
+                        window.location.href = originalHref;
                     }
-                }, 100);
-            }, 200);
+                }
+            }, 150);
         });
     });
 }
@@ -93,11 +86,11 @@ function init() {
     createStars();
     initSectionAnimations();
     setupCardClickEffects();
-    
+
     // Événements
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousemove', handleMouseMove);
-    
+
     // Animation initiale après un court délai
     setTimeout(() => {
         handleScroll();
