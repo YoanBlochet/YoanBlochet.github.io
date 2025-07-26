@@ -46,25 +46,19 @@ function setupCardClickEffects() {
     document.querySelectorAll('.link-card, .project-card').forEach(card => {
         card.addEventListener('click', function(e) {
             e.preventDefault(); // Empêche l'ouverture immédiate du lien
-
+            
             const originalHref = this.href;
             const originalTarget = this.target;
-            const hasTargetBlank = this.target === '_blank';
-
+            
             // Animation de clic
             this.style.transform = 'scale(0.95)';
             this.style.transition = 'transform 0.15s ease';
-
+            
             // Ouvre le lien après l'animation
             setTimeout(() => {
                 this.style.transform = '';
                 if (originalHref) {
                     window.open(originalHref, originalTarget || '_self');
-                    if (hasTargetBlank) {
-                        window.open(originalHref, '_blank');
-                    } else {
-                        window.location.href = originalHref;
-                    }
                 }
             }, 150);
         });
