@@ -249,43 +249,46 @@ body {
 .project-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid;
+    border: 2px solid;
     flex-shrink: 0;
     position: relative;
-    z-index: 10;
+    z-index: 100;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .project-badge.personal {
-    background: linear-gradient(45deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.3));
-    color: #10b981;
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.8));
+    color: #ffffff;
+    border-color: #10b981;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
 .project-badge.academic {
-    background: linear-gradient(45deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.3));
-    color: #f59e0b;
-    border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+    background: linear-gradient(45deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.8));
+    color: #ffffff;
+    border-color: #f59e0b;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
 }
 
 .project-badge.professional {
-    background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.3));
-    color: #8b5cf6;
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.9), rgba(124, 58, 237, 0.8));
+    color: #ffffff;
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
 }
 
 .project-badge:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.5);
 }
 
 .project-tech {
