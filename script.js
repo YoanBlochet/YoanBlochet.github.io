@@ -50,21 +50,30 @@ function setupCardClickEffects() {
             const originalHref = this.href;
             const hasTargetBlank = this.target === '_blank';
             
-            // Animation de clic
+            // Animation de clic avec durée plus longue pour être sûr de la voir
             this.style.transform = 'scale(0.95)';
-            this.style.transition = 'transform 0.15s ease';
+            this.style.transition = 'transform 0.2s ease';
             
-            // Ouvre le lien après l'animation
+            // Attendre que l'animation soit vraiment terminée
             setTimeout(() => {
-                this.style.transform = '';
-                if (originalHref) {
-                    if (hasTargetBlank) {
-                        window.open(originalHref, '_blank');
-                    } else {
-                        window.location.href = originalHref;
+                // Remettre la carte à sa taille normale
+                this.style.transform = 'scale(1)';
+                
+                // Attendre encore un peu pour voir le retour à la normale
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.transition = '';
+                    
+                    // Maintenant ouvrir le lien
+                    if (originalHref) {
+                        if (hasTargetBlank) {
+                            window.open(originalHref, '_blank');
+                        } else {
+                            window.location.href = originalHref;
+                        }
                     }
-                }
-            }, 150);
+                }, 100);
+            }, 200);
         });
     });
 }
