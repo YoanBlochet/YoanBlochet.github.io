@@ -1,57 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yoan Blochet – Ingénierie Aérospatiale</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Étudiant Ingénieur ISAE-ENSMA</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <div class="profile-image">
+                    ✈️
+                </div>
+                <div class="profile-info">
+                    <h1>Votre Nom</h1>
+                    <div class="subtitle">Élève Ingénieur • ISAE-ENSMA</div>
+                    <div class="specialization">🛡️ Spécialisation Défense & Aéronautique</div>
+                </div>
+            </div>
+        </header>
 
-  <!-- HEADER -->
-  <header>
-    <img src="photo.jpg" alt="Yoan Blochet" class="photo-profil">
-    <h1>Yoan Blochet</h1>
-    <p>Élève ingénieur – ISAE‑ENSMA | Aéronautique – Spatial – Défense</p>
-    <a href="cv.pdf" class="btn">Télécharger mon CV</a>
-  </header>
+        <section class="section">
+            <h2><span class="section-icon">🔗</span>Liens Professionnels</h2>
+            <div class="links-grid">
+                <a href="#" class="link-card">
+                    <span class="link-card-icon">💼</span>
+                    <h3>LinkedIn</h3>
+                    <p>Profil professionnel et réseau</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-card-icon">💻</span>
+                    <h3>GitHub</h3>
+                    <p>Projets et contributions open source</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-card-icon">📄</span>
+                    <h3>CV PDF</h3>
+                    <p>Curriculum vitae détaillé</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-card-icon">🎓</span>
+                    <h3>Portfolio Académique</h3>
+                    <p>Projets d'études et recherches</p>
+                </a>
+            </div>
+        </section>
 
-  <!-- A PROPOS -->
-  <section>
-    <h2>À propos</h2>
-    <p>
-      Actuellement en première année à l’ISAE‑ENSMA après une licence de physique, 
-      je me spécialise dans l’ingénierie aéronautique et spatiale avec un intérêt 
-      particulier pour les applications de défense.
-    </p>
-  </section>
+        <section class="section">
+            <h2><span class="section-icon">🚀</span>Projets Principaux</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Système de Navigation Autonome</h3>
+                    <p>Développement d'un algorithme de navigation pour drone militaire avec évitement d'obstacles et optimisation de trajectoire.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">ROS</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Simulation Dynamique de Vol</h3>
+                    <p>Modélisation et simulation des caractéristiques aérodynamiques d'un avion de chasse avec interface de contrôle.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Simulink</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">CFD</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Analyse de Données Satellitaires</h3>
+                    <p>Traitement et analyse de données télémétriques pour optimisation des orbites de satellites de reconnaissance.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Jupyter</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Interface de Commande Tactique</h3>
+                    <p>Application web pour la gestion et le contrôle de systèmes d'armes avec authentification sécurisée.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Cryptographie</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- PROJETS -->
-  <section>
-    <h2>Projets</h2>
-    <div class="projets">
-      <div class="projet">
-        <h3>Simulateur de trajectoire</h3>
-        <p>Python, matplotlib</p>
-        <a class="link-btn" href="https://github.com/YoanBlochet/ballistics-simulator">Voir sur GitHub</a>
-      </div>
+        <section class="section">
+            <h2><span class="section-icon">📧</span>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <strong>Email</strong><br>
+                        votre.email@student.ensma.fr
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <div>
+                        <strong>Téléphone</strong><br>
+                        +33 X XX XX XX XX
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Localisation</strong><br>
+                        Poitiers, France
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🎯</span>
+                    <div>
+                        <strong>Disponibilité</strong><br>
+                        Stage/Alternance
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 - Élève Ingénieur ISAE-ENSMA • Spécialisation Défense & Aéronautique</p>
+            <p>Dernière mise à jour : Juillet 2025</p>
+        </footer>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section>
-    <h2>Contact</h2>
-    <p>Email : <a href="mailto:yoan.blochet@outlook.fr">yoan.blochet@outlook.fr</a></p>
-    <p class="contact-links">
-      <a href="https://www.linkedin.com/in/yoan-blochet">LinkedIn</a>
-      <a href="https://github.com/YoanBlochet">GitHub</a>
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Yoan Blochet
-  </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
