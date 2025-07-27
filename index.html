@@ -12,8 +12,7 @@
     
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="stars"></div>
+<div class="stars"></div>
     
     <div class="container">
         <header class="header">
@@ -27,87 +26,193 @@
                     <div class="specialization">🛡️ Spécialisation Défense & Aéronautique</div>
                 </div>
             </div>
+
+            <nav class="navigation">
+                <a href="index.html" class="nav-link">
+                    🏠 Accueil
+                </a>
+                <a href="portfolio.html" class="nav-link active">
+                    🚀 Portfolio
+                </a>
+                <a href="#contact" class="nav-link">
+                    📧 Contact
+                </a>
+            </nav>
         </header>
 
         <section class="section">
-            <h2><span class="section-icon">🔗</span>Liens Professionnels</h2>
-            <div class="links-grid">
-                <a href="https://www.linkedin.com/in/yoan-blochet" target="_blank" class="link-card">
-                    <span class="link-card-icon">💼</span>
-                    <h3>LinkedIn</h3>
-                    <p>Profil professionnel et réseau</p>
-                </a>
-                <a href="https://github.com/YoanBlochet" target="_blank" class="link-card">
-                    <span class="link-card-icon">💻</span>
-                    <h3>GitHub</h3>
-                    <p>Projets et contributions open source</p>
-                </a>
-                <a href="assets/CV_Yoan_Blochet.pdf" target="_blank" class="link-card">
-                    <span class="link-card-icon">📄</span>
-                    <h3>CV PDF</h3>
-                    <p>Curriculum vitae détaillé</p>
-                </a>
-                <a href="https://votre-portfolio-academique.com" target="_blank" class="link-card">
-                    <span class="link-card-icon">🎓</span>
-                    <h3>Portfolio Académique</h3>
-                    <p>Projets d'études et recherches</p>
-                </a>
+            <h2><span class="section-icon">🚀</span>Mes Projets</h2>
+            
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">Tous</div>
+                <div class="filter-tab" data-filter="personal">Personnel</div>
+                <div class="filter-tab" data-filter="academic">Académique</div>
+                <div class="filter-tab" data-filter="professional">Professionnel</div>
             </div>
-        </section>
 
-        <section class="section">
-            <h2><span class="section-icon">🚀</span>Projets Principaux</h2>
             <div class="projects-grid">
-                <!-- Projet Personnel -->
-                <a href="https://github.com/YoanBlochet/ballistics-simulator" target="_blank" class="project-card">
+                <!-- Projet Personnel 1 -->
+                <div class="project-card" data-category="personal">
                     <div class="project-header">
-                        <h3>Simulateur Balistique Avancé - Python</h3>
+                        <h3>Simulateur Balistique Avancé</h3>
                         <span class="project-badge personal">
                             💡 Personnel
                         </span>
                     </div>
-                    <p>Ce simulateur modélise la trajectoire d'un missile/projetile dans un environnement atmosphérique 3D réaliste, avec prise en compte fine de nombreux phénomènes physiques. Il se veut particulièrement modulable et personnalisable.</p>
+                    <p class="project-description">
+                        Simulateur modélisant la trajectoire d'un missile/projetile dans un environnement atmosphérique 3D réaliste, avec prise en compte fine de nombreux phénomènes physiques. Particulièrement modulable et personnalisable.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Scipy</span>
                         <span class="tech-tag">Numpy</span>
                         <span class="tech-tag">Matplotlib</span>
                         <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Csv</span>
                     </div>
-                </a>
-            </div>
-        </section>
+                    <div class="project-links">
+                        <a href="https://github.com/YoanBlochet/ballistics-simulator" target="_blank" class="project-link">
+                            💻 Code Source
+                        </a>
+                        <a href="#" class="project-link">
+                            📊 Démo
+                        </a>
+                    </div>
+                </div>
 
-        <section class="section">
-            <h2><span class="section-icon">📧</span>Contact</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span class="contact-icon">📧</span>
-                    <div>
-                        <strong>Email</strong><br>
-                        yoan.blochet@etu.isae-ensma.fr
+                <!-- Projet Académique 1 -->
+                <div class="project-card" data-category="academic">
+                    <div class="project-header">
+                        <h3>Système de Navigation Autonome</h3>
+                        <span class="project-badge academic">
+                            🎓 Académique
+                        </span>
+                    </div>
+                    <p class="project-description">
+                        Développement d'un système de navigation autonome pour drone dans le cadre d'un projet d'études. Implémentation d'algorithmes de pathfinding et de détection d'obstacles en temps réel.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">ROS</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Gazebo</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            💻 Code Source
+                        </a>
+                        <a href="#" class="project-link">
+                            📄 Rapport
+                        </a>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">💼</span>
-                    <div>
-                        <strong>LinkedIn</strong><br>
-                        Profil Détaillé
+
+                <!-- Projet Professionnel 1 -->
+                <div class="project-card" data-category="professional">
+                    <div class="project-header">
+                        <h3>Interface de Contrôle Radar</h3>
+                        <span class="project-badge professional">
+                            💼 Professionnel
+                        </span>
+                    </div>
+                    <p class="project-description">
+                        Conception et développement d'une interface utilisateur pour système de contrôle radar lors d'un stage en entreprise. Focus sur l'ergonomie et la performance temps réel pour les opérateurs.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JavaFX</span>
+                        <span class="tech-tag">TCP/IP</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            📋 Description
+                        </a>
+                        <a href="#" class="project-link">
+                            🏢 Entreprise
+                        </a>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <div>
-                        <strong>Localisation</strong><br>
-                        Poitiers, France
+
+                <!-- Projet Personnel 2 -->
+                <div class="project-card" data-category="personal">
+                    <div class="project-header">
+                        <h3>Analyseur de Performance Aérodynamique</h3>
+                        <span class="project-badge personal">
+                            💡 Personnel
+                        </span>
+                    </div>
+                    <p class="project-description">
+                        Outil d'analyse et de visualisation des performances aérodynamiques d'aéronefs. Calculs de coefficients de portance, traînée et moment avec interface graphique interactive.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Simulink</span>
+                        <span class="tech-tag">CFD</span>
+                        <span class="tech-tag">GUI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            💻 Code Source
+                        </a>
+                        <a href="#" class="project-link">
+                            📊 Résultats
+                        </a>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">🎯</span>
-                    <div>
-                        <strong>Disponibilité</strong><br>
-                        N/A (Temporaire)
+
+                <!-- Projet Académique 2 -->
+                <div class="project-card" data-category="academic">
+                    <div class="project-header">
+                        <h3>Optimisation Trajectoire Satellite</h3>
+                        <span class="project-badge academic">
+                            🎓 Académique
+                        </span>
+                    </div>
+                    <p class="project-description">
+                        Projet de fin d'études sur l'optimisation de trajectoires satellitaires. Développement d'algorithmes génétiques pour minimiser la consommation de carburant lors des manœuvres orbitales.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">GMAT</span>
+                        <span class="tech-tag">Optimization</span>
+                        <span class="tech-tag">Orbital Mechanics</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            📄 Mémoire
+                        </a>
+                        <a href="#" class="project-link">
+                            📊 Présentation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet Professionnel 2 -->
+                <div class="project-card" data-category="professional">
+                    <div class="project-header">
+                        <h3>Système de Test Automatisé</h3>
+                        <span class="project-badge professional">
+                            💼 Professionnel
+                        </span>
+                    </div>
+                    <p class="project-description">
+                        Développement d'un système de test automatisé pour composants avioniques. Intégration de bancs de test et génération automatique de rapports de conformité selon standards DO-178C.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">LabVIEW</span>
+                        <span class="tech-tag">TestStand</span>
+                        <span class="tech-tag">VISA</span>
+                        <span class="tech-tag">DO-178C</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            📋 Documentation
+                        </a>
+                        <a href="#" class="project-link">
+                            🏆 Certification
+                        </a>
                     </div>
                 </div>
             </div>
@@ -115,10 +220,9 @@
 
         <footer class="footer">
             <p>© 2025 - Yoan Blochet</p>
-            <p>Dernière mise à jour : Juillet 2025</p>
+            <p>Portfolio mis à jour : Juillet 2025</p>
         </footer>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
