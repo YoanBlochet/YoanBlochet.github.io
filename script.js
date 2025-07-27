@@ -1,95 +1,73 @@
-// Génération d'étoiles animées
+// Animation des étoiles
 function createStars() {
     const starsContainer = document.querySelector('.stars');
-    const numberOfStars = 100;
+    const numStars = 100;
 
-    for (let i = 0; i < numberOfStars; i++) {
+    for (let i = 0; i < numStars; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
         star.style.animationDelay = Math.random() * 2 + 's';
-        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
         starsContainer.appendChild(star);
     }
 }
 
-// Animation au scroll
-function handleScroll() {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
+// Système de filtrage des projets
+function initializeFilters() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const projectCards = document.querySelectorAll('.project-card');
 
-        if (isVisible) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
-    });
-}
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Retirer la classe active de tous les onglets
+            filterTabs.forEach(t => t.classList.remove('active'));
+            // Ajouter la classe active à l'onglet cliqué
+            tab.classList.add('active');
 
-// Effet de parallaxe subtil
-function handleMouseMove(e) {
-    const sections = document.querySelectorAll('.section');
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+            const filter = tab.dataset.filter;
 
-    sections.forEach((section, index) => {
-        const offsetX = (mouseX - 0.5) * 10 * (index % 2 === 0 ? 1 : -1);
-        const offsetY = (mouseY - 0.5) * 5;
-        section.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-    });
-}
-
-// Effet de clic sur les cartes avec délai pour voir l'animation
-function setupCardClickEffects() {
-    document.querySelectorAll('.link-card, .project-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            e.preventDefault(); // Empêche l'ouverture immédiate du lien
-            
-            const originalHref = this.href;
-            const originalTarget = this.target;
-            
-            // Animation de clic
-            this.style.transform = 'scale(0.95)';
-            this.style.transition = 'transform 0.15s ease';
-            
-            // Ouvre le lien après l'animation
-            setTimeout(() => {
-                this.style.transform = '';
-                if (originalHref) {
-                    window.open(originalHref, originalTarget || '_self');
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
                 }
-            }, 150);
+            });
         });
     });
 }
 
-// Initialisation de l'animation d'entrée pour les sections
-function initSectionAnimations() {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'all 0.6s ease';
+// Animation au scroll
+function initializeScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
     });
 }
 
-// Fonction d'initialisation principale
-function init() {
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
     createStars();
-    initSectionAnimations();
-    setupCardClickEffects();
-
-    // Événements
-    window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousemove', handleMouseMove);
-
-    // Animation initiale après un court délai
-    setTimeout(() => {
-        handleScroll();
-    }, 100);
-}
-
-// Démarrage une fois le DOM chargé
-document.addEventListener('DOMContentLoaded', init);
+    initializeFilters();
+    initializeScrollAnimations();
+});
