@@ -164,3 +164,99 @@ function debugInfo() {
     console.log('🎯 Stars created:', document.querySelectorAll('.star').length);
     console.log('🎨 Sections found:', document.querySelectorAll('.section').length);
 }
+
+// Language switching functionality
+let currentLanguage = 'fr';
+
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Update language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+    
+    // Update document language
+    document.documentElement.lang = lang;
+    
+    // Update all elements with data-fr and data-en attributes
+    document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+        if (lang === 'fr') {
+            element.textContent = element.getAttribute('data-fr');
+        } else {
+            element.textContent = element.getAttribute('data-en');
+        }
+    });
+
+    // Update meta tags
+    if (lang === 'en') {
+        document.title = 'Yoan Blochet - Engineering Student ISAE-ENSMA';
+        document.querySelector('meta[name="description"]').setAttribute('content', 
+            'Portfolio of Yoan Blochet, engineering student specializing in Defense & Aeronautics at ISAE-ENSMA. Discover my projects and skills.');
+        document.querySelector('meta[property="og:title"]').setAttribute('content', 
+            'Yoan Blochet - Engineering Student ISAE-ENSMA');
+        document.querySelector('meta[property="og:description"]').setAttribute('content', 
+            'Portfolio of Yoan Blochet, engineering student specializing in Defense & Aeronautics');
+    } else {
+        document.title = 'Yoan Blochet - Élève Ingénieur ISAE-ENSMA';
+        document.querySelector('meta[name="description"]').setAttribute('content', 
+            'Portfolio de Yoan Blochet, élève ingénieur en spécialisation Défense & Aéronautique à l\'ISAE-ENSMA. Découvrez mes projets et compétences.');
+        document.querySelector('meta[property="og:title"]').setAttribute('content', 
+            'Yoan Blochet - Élève Ingénieur ISAE-ENSMA');
+        document.querySelector('meta[property="og:description"]').setAttribute('content', 
+            'Portfolio de Yoan Blochet, élève ingénieur en spécialisation Défense & Aéronautique');
+    }
+
+    // Save language preference
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Load saved language preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'fr';
+    if (savedLanguage !== 'fr') {
+        switchLanguage(savedLanguage);
+    }
+});
+
+// Gestion du popup
+const popup = document.getElementById("cv-popup");
+const cvLink = document.getElementById("cv-link");
+const closeBtn = document.getElementById("close-popup");
+
+// Ouvre popup au clic
+cvLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    popup.style.display = "flex";
+    popup.focus();
+});
+
+// Ferme popup au clic bouton fermer
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+// Ferme popup si clic hors popup-content
+popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+        popup.style.display = "none";
+    }
+});
+
+// Fonction de changement de langue du popup
+function updatePopupLanguage(lang) {
+    popup.querySelectorAll("[data-fr]").forEach(el => {
+        el.textContent = (lang === "en") ? el.getAttribute("data-en") : el.getAttribute("data-fr");
+    });
+}
+
+// Détecte la langue depuis l'attribut <html lang="fr"> ou "en"
+function detectLanguage() {
+    const lang = document.documentElement.lang || "fr";
+    updatePopupLanguage(lang.startsWith("en") ? "en" : "fr");
+}
+
+// Met à jour au chargement
+detectLanguage();
+

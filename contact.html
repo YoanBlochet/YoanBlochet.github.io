@@ -25,6 +25,16 @@
 </head>
 <body>
     <div class="stars"></div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn active" onclick="switchLanguage('fr')">
+            <img src="assets/flags/fr.svg" alt="Français" class="flag-icon"> FR
+        </button>
+        <button class="lang-btn" onclick="switchLanguage('en')">
+            <img src="assets/flags/us.svg" alt="English" class="flag-icon"> EN
+        </button>
+    </div>
     
     <div class="container">
         <header class="header">
@@ -34,30 +44,32 @@
                 </div>
                 <div class="profile-info">
                     <h1>Yoan Blochet</h1>
-                    <div class="subtitle">Élève Ingénieur (Promotion 2028) • ISAE-ENSMA</div>
-                    <div class="specialization">🛡️ Spécialisation Aéronautique, Défense & Spatial</div>
+                    <div class="subtitle" data-fr="Élève Ingénieur (Promotion 2028) • ISAE-ENSMA" data-en="Engineering Student (Class of 2028) • ISAE-ENSMA">Élève Ingénieur (Promotion 2028) • ISAE-ENSMA</div>
+                    <div class="specialization" data-fr="🛡️ Spécialisation Aéronautique, Défense & Spatial" data-en="🛡️ Specialization in Aeronautics, Defense & Space">🛡️ Spécialisation Aéronautique, Défense & Spatial</div>
                 </div>
             </div>
 
             <nav class="navigation">
-                <a href="index.html" class="nav-link active">
-                    🏠 Accueil
+                <a href="index.html" class="nav-link">
+                    <span data-fr="🏠 Accueil" data-en="🏠 Home">🏠 Accueil</span>
                 </a>
                 <a href="parcours.html" class="nav-link">
-                    💼 Mon Parcours
+                    <span data-fr="💼 Mon Parcours" data-en="💼 My Background">💼 Mon Parcours</span>
                 </a>
                 <a href="portfolio.html" class="nav-link">
-                    🗂️ Mes Projets
+                    <span data-fr="🗂️ Mes Projets" data-en="🗂️ My Projects">🗂️ Mes Projets</span>
                 </a>
-                <a href="contact.html" class="nav-link">
-                    📧 Contact
+                <a href="contact.html" class="nav-link active">
+                    <span data-fr="📧 Contact" data-en="📧 Contact">📧 Contact</span>
                 </a>
             </nav>
         </header>
 
         <section class="section">
-            <h2><span class="section-icon">📧</span>Me Contacter</h2>
-            <p style="text-align: center; color: #a0aec0; margin-bottom: 1.4rem; font-size: 1.1rem; line-height: 1.6;">
+            <h2><span class="section-icon">📧</span><span data-fr="Me Contacter" data-en="Contact Me">Me Contacter</span></h2>
+            <p style="text-align: center; color: #a0aec0; margin-bottom: 1.4rem; font-size: 1.1rem; line-height: 1.6;"
+               data-fr="N'hésitez pas à me contacter pour des opportunités professionnelles, des collaborations sur des projets,<br>des questions techniques ou simplement pour échanger sur l'ingénierie aéronautique et spatiale."
+               data-en="Feel free to contact me for professional opportunities, project collaborations,<br>technical questions or simply to discuss aeronautical and space engineering.">
                 N'hésitez pas à me contacter pour des opportunités professionnelles, des collaborations sur des projets,<br>
                 des questions techniques ou simplement pour échanger sur l'ingénierie aéronautique et spatiale.
             </p>
@@ -65,12 +77,13 @@
             <div style="display: block;" class="contact-layout">
                 <!-- Informations de contact -->
                 <div>
-                    <h3 style="color: #4299e1; margin-bottom: 1.5rem; font-size: 1.4rem;">📍 Informations de Contact</h3>
+                    <h3 style="color: #4299e1; margin-bottom: 1.5rem; font-size: 1.4rem;"
+                        data-fr="📍 Informations de Contact" data-en="📍 Contact Information">📍 Informations de Contact</h3>
                     <div class="contact-info">
                         <div class="contact-item">
                             <span class="contact-icon">📧</span>
                             <div>
-                                <strong>Email Personnel</strong><br>
+                                <strong data-fr="Email Personnel" data-en="Personal Email">Email Personnel</strong><br>
                                 <a href="mailto:yoan.blochet@etu.isae-ensma.fr" style="color: #4299e1; text-decoration: none;">
                                     yoan.blochet@etu.isae-ensma.fr
                                 </a>
@@ -100,89 +113,46 @@
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
                             <div>
-                                <strong>Localisation</strong><br>
-                                Poitiers, Nouvelle-Aquitaine, France
+                                <strong data-fr="Localisation" data-en="Location">Localisation</strong><br>
+                                <span data-fr="Poitiers, Nouvelle-Aquitaine, France" data-en="Poitiers, Nouvelle-Aquitaine, France">Poitiers, Nouvelle-Aquitaine, France</span>
                             </div>
                         </div>
                         
                         <div class="contact-item unavailable">
                             <span class="contact-icon">🎯</span>
                             <div>
-                                <strong>Disponibilité</strong><br>
-                                Temporairement Indisponible
+                                <strong data-fr="Disponibilité" data-en="Availability">Disponibilité</strong><br>
+                                <span data-fr="Temporairement Indisponible" data-en="Temporarily Unavailable">Temporairement Indisponible</span>
                             </div>
                         </div>
                         
                         <div class="contact-item">
                             <span class="contact-icon">🕒</span>
                             <div>
-                                <strong>Temps de réponse</strong><br>
-                                Généralement sous 24-48h
+                                <strong data-fr="Temps de réponse" data-en="Response time">Temps de réponse</strong><br>
+                                <span data-fr="Généralement sous 24-48h" data-en="Usually within 24-48h">Généralement sous 24-48h</span>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(66, 153, 225, 0.1); border-radius: 15px; border-left: 4px solid #4299e1;">
-                        <h4 style="color: #4299e1; margin-bottom: 1rem;">🌟 Domaines d'intérêt</h4>
+                        <h4 style="color: #4299e1; margin-bottom: 1rem;"
+                            data-fr="🌟 Domaines d'intérêt" data-en="🌟 Areas of Interest">🌟 Domaines d'intérêt</h4>
                         <ul style="color: #cbd5e0; line-height: 1.6; list-style: none;">
-                            <li>• Ingénierie aéronautique et spatiale</li>
-                            <li>• Systèmes de défense et technologies militaires</li>
-                            <li>• Simulation numérique et modélisation</li>
-                            <li>• Développement logiciel technique</li>
-                            <li>• Projets de recherche et innovation</li>
+                            <li data-fr="• Ingénierie aéronautique et spatiale" data-en="• Aeronautical and space engineering">• Ingénierie aéronautique et spatiale</li>
+                            <li data-fr="• Systèmes de défense et technologies militaires" data-en="• Defense systems and military technologies">• Systèmes de défense et technologies militaires</li>
+                            <li data-fr="• Simulation numérique et modélisation" data-en="• Numerical simulation and modeling">• Simulation numérique et modélisation</li>
+                            <li data-fr="• Développement logiciel technique" data-en="• Technical software development">• Développement logiciel technique</li>
+                            <li data-fr="• Projets de recherche et innovation" data-en="• Research and innovation projects">• Projets de recherche et innovation</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section FAQ 
-        <section class="section">
-            <h2><span class="section-icon">❓</span>Questions Fréquentes</h2>
-            <div style="display: grid; gap: 1.5rem;">
-                <div style="background: rgba(66, 153, 225, 0.05); border-radius: 15px; padding: 1.5rem; border-left: 4px solid #4299e1;">
-                    <h4 style="color: #4299e1; margin-bottom: 0.5rem;">Êtes-vous disponible pour des stages ?</h4>
-                    <p style="color: #cbd5e0; line-height: 1.6;">
-                        Oui, je recherche activement des opportunités de stage dans les domaines de l'aéronautique, 
-                        de la défense et du spatial. Je suis particulièrement intéressé par les projets impliquant 
-                        de la simulation, du développement logiciel ou de la recherche appliquée.
-                    </p>
-                </div>
-
-                <div style="background: rgba(245, 158, 11, 0.05); border-radius: 15px; padding: 1.5rem; border-left: 4px solid #f59e0b;">
-                    <h4 style="color: #f59e0b; margin-bottom: 0.5rem;">Dans quels types de projets puis-je collaborer ?</h4>
-                    <p style="color: #cbd5e0; line-height: 1.6;">
-                        Je peux contribuer à des projets de simulation numérique, développement d'outils d'analyse, 
-                        recherche en aérodynamique, optimisation de systèmes, ou développement logiciel technique. 
-                        N'hésitez pas à me présenter votre projet !
-                    </p>
-                </div>
-
-                <div style="background: rgba(139, 92, 246, 0.05); border-radius: 15px; padding: 1.5rem; border-left: 4px solid #8b5cf6;">
-                    <h4 style="color: #8b5cf6; margin-bottom: 0.5rem;">Quelle est votre expérience en développement ?</h4>
-                    <p style="color: #cbd5e0; line-height: 1.6;">
-                        J'ai une solide expérience en Python, MATLAB, C/C++ et Java, avec des projets personnels 
-                        et académiques variés. Je maîtrise également les outils de simulation (CFD, FEM) et 
-                        les environnements de développement collaboratif (Git, etc.).
-                    </p>
-                </div>
-
-                <div style="background: rgba(16, 185, 129, 0.05); border-radius: 15px; padding: 1.5rem; border-left: 4px solid #10b981;">
-                    <h4 style="color: #10b981; margin-bottom: 0.5rem;">Proposez-vous des services de conseil ?</h4>
-                    <p style="color: #cbd5e0; line-height: 1.6;">
-                        En tant qu'étudiant, je peux apporter un regard frais sur des problématiques techniques 
-                        spécifiques, participer à des études préliminaires ou contribuer à des projets de recherche. 
-                        Contactez-moi pour discuter des modalités selon votre besoin.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        -->
-
         <footer class="footer">
             <p>© 2025 - Yoan Blochet</p>
-            <p>Élève Ingénieur ISAE-ENSMA • Spécialisation Défense & Aéronautique</p>
+            <p data-fr="Élève Ingénieur ISAE-ENSMA • Spécialisation Défense & Aéronautique" data-en="Engineering Student ISAE-ENSMA • Defense & Aeronautics Specialization">Élève Ingénieur ISAE-ENSMA • Spécialisation Défense & Aéronautique</p>
             <p>📧 <a href="mailto:yoan.blochet@etu.isae-ensma.fr" style="color: #4299e1;">Email</a> • 💼 <a href="https://www.linkedin.com/in/yoan-blochet" style="color: #4299e1;">LinkedIn</a> • 💻 <a href="https://github.com/YoanBlochet" style="color: #4299e1;">GitHub</a></p>
         </footer>
     </div>
