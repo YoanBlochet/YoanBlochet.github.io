@@ -1,2 +1,3 @@
 Mon Site Portfolio.
-Mis à jour le 28/07/2025 (Patch 1)
+Mis à jour le 07/08/2025 (MAJ Liste de Projets)
+
